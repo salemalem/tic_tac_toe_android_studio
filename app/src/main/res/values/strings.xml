@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">tic_tac_toe_android_studio</string>
+    <string name="todo">TODO</string>
 </resources>
