@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
                     if (gameState[winningPosition[0]] == 0) {
                         winner = "Yellow";
                     }
-                    TextView winnerMessage = (TextView) findViewById(R.id.winnerMessage);
+                    TextView winnerMessage = findViewById(R.id.winnerMessage);
                     winnerMessage.setText((winner + " has won!"));
 
-                    LinearLayout playAgainLayout = (LinearLayout) findViewById(R.id.playAgainLayout);
+                    LinearLayout playAgainLayout = findViewById(R.id.playAgainLayout);
                     playAgainLayout.setVisibility(View.VISIBLE);
                 } else {
                     boolean gameIsOver = true;
