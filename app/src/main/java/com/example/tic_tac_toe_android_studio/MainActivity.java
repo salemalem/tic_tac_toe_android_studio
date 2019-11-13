@@ -9,6 +9,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,9 +63,12 @@ public class MainActivity extends AppCompatActivity {
                     playAgainLayout.setVisibility(View.VISIBLE);
                 } else {
                     boolean gameIsOver = true;
+
+
                     for (int counterState : gameState) {
                         if (counterState == 2) {
                             gameIsOver = false;
+                            gameIsActive = true;
                         }
                     }
 
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                         LinearLayout playAgainLayout = (LinearLayout) findViewById(R.id.playAgainLayout);
                         playAgainLayout.setVisibility(View.VISIBLE);
+                        gameIsActive = false;
                     }
                 }
             }
@@ -82,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void playAgain(View view) {
         gameIsActive = true;
-        LinearLayout playAgainLayout = (LinearLayout) findViewById(R.id.playAgainLayout);
-        playAgainLayout.setVisibility(View.INVISIBLE);
+        LinearLayout layout = findViewById(R.id.playAgainLayout);
+        layout.setVisibility(View.INVISIBLE);
 
         // resetting
         // 0 = yellow, 1 = red
@@ -96,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             gameState[i] = 2;
         }
 
-        GridLayout gridLayout = (GridLayout) findViewById(R.id.gridLayout);
+        GridLayout gridLayout = findViewById(R.id.gridLayout);
         for (int i = 0; i < gridLayout.getChildCount(); i++) {
             ((ImageView) gridLayout.getChildAt(i)).setImageResource(0);
         }
@@ -106,5 +111,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toast.makeText(MainActivity.this, "MAKE WITH <3 \nFROM SHYNGYS",
+                Toast.LENGTH_LONG).show();
     }
 }

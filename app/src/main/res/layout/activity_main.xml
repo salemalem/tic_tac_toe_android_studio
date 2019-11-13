@@ -151,7 +151,7 @@
         android:layout_centerInParent="true"
         android:background="#8BC34A"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="invisible">
 
         <TextView
             android:id="@+id/winnerMessage"
